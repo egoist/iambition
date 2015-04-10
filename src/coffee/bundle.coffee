@@ -14,10 +14,10 @@ $(document).pjax 'a', '.wrap',
   timeout: 10000
 
 $('.wrap').on 'pjax:start', ->
-  console.log 'pjax start'
+  appLoading.start()
 
 $('.wrap').on 'pjax:end', ->
-  console.log 'pjax end'
+  appLoading.stop()
   init()
 
 window.paceOptions = 
