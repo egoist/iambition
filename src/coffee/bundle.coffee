@@ -135,7 +135,6 @@ loadComments = ->
         rendered = Mustache.render template, 
           comments: data
         $('.comments-list').html(rendered)
-        
       else
          $('.comments-list').find('div').html('暂无评论')
 
@@ -157,6 +156,8 @@ loadBefore = ->
     , (data) ->
       $('.timeline').append(data).show()
       $('#load').show()
+      $('.gone').each ->
+          $(this).addClass 'animated fadeInUp'
 
 load = ->
   date_from.setDate(date_from.getDate() - date_between)

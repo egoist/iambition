@@ -5,7 +5,7 @@
 <div class="content">
   <div class="ideas">
     {% for idea in ideas %}
-    <div class="one-idea clearfix">
+    <div class="one-idea clearfix{% if ajax %} gone{% endif %}">
       <div class="idea-left pull-left">
         <div class="heart-it gray-3{% if idea.hearted %} hearted{% else %} unhearted{% endif %}" data-idea-id="{{ idea.idea_id }}" data-hearted="{{ idea.hearted }}"><i class="glyphicon glyphicon-heart-empty"></i><i class="glyphicon glyphicon-heart red"></i> <span>{{ idea.hearts.length }}</span></div>
       </div>

@@ -52,6 +52,7 @@ routes.ideasDate = (req, res) ->
     res.render 'list',
       date: H.getDate(date)
       ideas: ideas
+      ajax: true
 
 routes.ideas_new = (req, res) ->
   res.render 'ideas_new',
