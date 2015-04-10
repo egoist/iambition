@@ -309,7 +309,7 @@ routes.ideaComments = (req, res) ->
   M.comment.find().populate('user').where(query).exec (err, comments) ->
     if comments
       for k,v of comments
-        comments[k].content = H.md v.content
+        comments[k].content = H.md H.xss v.content
         comments[k].timeago = H.timeago v.createdAt
     res.json comments
 
@@ -352,6 +352,7 @@ routes.commentAdd = (req, res) ->
                 type: 'comment'
             M.notification.create noties, (err, noties_updated) ->
               console.log noties_updated
+        result.content = H.md H.xss result.content
         res.json
           status: 'good'
           comment: result
