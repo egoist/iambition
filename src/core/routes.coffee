@@ -29,6 +29,7 @@ routes.index = (req, res) ->
     res.render 'index',
       date: H.getDate(date)
       ideas: ideas
+      ajax: true
 
 routes.ideasDate = (req, res) ->
   date = new Date(req.body.date)

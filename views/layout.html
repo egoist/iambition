@@ -19,6 +19,9 @@
       <div class="container">
       {% block content %}
         <div class="timeline">
+        <div class="tc" id="loading-heart">
+          {% include 'loading_svg.html' %}
+        </div>
         {% include 'list.html' %}
         </div>
         <div class="load" id="load">加载更多</div>

@@ -156,6 +156,7 @@ loadBefore = ->
     , (data) ->
       $('.timeline').append(data).show()
       $('#load').show()
+      $('#loading-heart').hide()
       $('.gone').each ->
           $(this).addClass 'animated fadeInUp'
 
