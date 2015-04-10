@@ -134,6 +134,7 @@ loadComments = ->
         rendered = Mustache.render template, 
           comments: data
         $('.comments-list').html(rendered)
+        $('#no-comment').remove()
       else
          $('.comments-list').find('div').html('暂无评论')
 
