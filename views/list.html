@@ -1,5 +1,5 @@
 {% if ideas.length > 0 %}
-<header class="date-header">
+<header class="date-header{% if ajax %} gone{% endif %}">
   <h3 class="date">{{ date }}</h3>
 </header>
 <div class="content">
