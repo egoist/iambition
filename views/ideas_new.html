@@ -6,7 +6,7 @@
 
 {% block content %}
   <div class="form-scale">
-  {% if user.is_active %}
+ 
       {% include 'alert.html' %}
      <div class="form-group">
 
@@ -22,10 +22,6 @@
     </div>
    
     <button type="button" class="btn btn-default btn-block" id="idea-submit">提交</button>
-  {% else %}
-  <div class="alert alert-warning" role="alert">
-  你还没有验证邮箱。
-  </div>
-  {% endif %}
+ 
   </div>
 {% endblock %}
