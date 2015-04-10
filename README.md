@@ -1,5 +1,3 @@
-# express-starter
+# iambition
 
-## Buzz words
-
-Express, MongoDB, Swig, CoffeeScript, Gulp, Stylus, Redis
+my love is worth more than a thousand words.
