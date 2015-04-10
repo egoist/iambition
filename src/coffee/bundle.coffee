@@ -180,7 +180,7 @@ checkNotifications = ->
 
 clearNotifications = ->
   return if not login
-  if typeof page isnt 'undefined' and page is 'notifications'
+  if location.href is 'http://iambition.net/notifications'
     $.post '/notifications/clear',
       type: 'single'
     , (data) ->
