@@ -125,7 +125,7 @@ loadComments = ->
     $.post '/idea/comments',
       idea_id: idea_id
     , (data) ->
-      if data
+      if data.length > 0
         for v,k in data
           data[k].user = v.user[0]
           data[k].timeago = timeago v.createdAt
@@ -135,7 +135,7 @@ loadComments = ->
           comments: data
         $('.comments-list').html(rendered)
       else
-         $('.comments-list').html('暂无评论')
+         $('.comments-list').find('div').html('暂无评论')
 
 timeago = (date) ->
   moment.locale('zh-cn')
