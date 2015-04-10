@@ -4,6 +4,8 @@
   {{ title }} - {% parent %}
 {% endblock %}
 
+{% block meta_description %}{{ idea.description.substring(0,30) }}{% endblock %}
+
 {% block main %}
 <script>
   var mode = 'idea';
