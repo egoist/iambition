@@ -1,0 +1,26 @@
+<div class="panel panel-default">
+  <div class="panel-body">
+    <form action="/settings" method="POST" autocomplete="off">
+      {% include 'alert.html' %}
+      <div class="form-group">
+        <label for="username">用户名</label>
+        <input type="text" class="form-control" id="username" name="username" placeholder="" value="{{ user.username }}" disabled>
+      </div>
+      <div class="form-group">
+        <label for="email">邮箱</label>
+        <input type="email" class="form-control" id="email" name="email" placeholder="" value="{{ formData.email }}">
+      </div>
+      <div class="form-group">
+        <label for="introduction">自我介绍</label>
+        <textarea class="form-control" id="introduction" name="introduction" placeholder="" rows="3">{{ formData.introduction }}</textarea>
+        
+      </div>
+     <div class="form-group">
+       <label for="tags">标签</label>
+       <p class="help-block">你是前段工程师还是投资者，亦或是个作家、投资者，给自己加几个标签</p>
+       <input type="text" class="form-control" id="tags" name="tags" value="{{ formData.tags }}">
+     </div>
+      <button type="submit" class="btn btn-success">更新</button>
+    </form>
+  </div>
+</div>

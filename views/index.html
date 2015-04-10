@@ -1,0 +1,15 @@
+{% extends 'layout.html' %}
+
+{% block main %}
+<script>var mode = 'index';</script>
+<section class="welcome">
+      <div class="container">
+        <div class="pull-right">
+          <a class="btn btn-success" href="/ideas/new">分享创意</a>
+        </div>
+        <h2 class="slogan">{{ C.site.slogan }}</h2>
+        <p class="description">{{ C.site.description }}</p>
+      </div>
+    </section>
+{% parent %}
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+{{ title }} - {% parent %}
+{% endblock %}
+
+{% block content %}
+<div class="single">
+<div class="row">
+  
+  <div class="col col-md-3">
+    <ul class="nav nav-pills nav-stacked">
+      <li role="presentation" class="active"><a href="/notifications">回复</a></li>
+    </ul>
+  </div>
+  <div class="col col-md-9">
+  <div class="panel panel-default">
+      <div class="panel-body">
+       {% include 'notification_replies.html' %}
+        <!-- list -->
+      </div>
+    </div>
+   
+  </div>
+  
+
+  </div>
+</div>
+{% endblock %}
+

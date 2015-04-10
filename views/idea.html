@@ -1,0 +1,76 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+  {{ title }} - {% parent %}
+{% endblock %}
+
+{% block main %}
+<script>
+  var mode = 'idea';
+  var idea_id = {{ idea.idea_id }};
+  var idea_object_id = '{{ idea._id.toString() }}';
+  var idea_username = '{{ author.username }}'
+</script>
+
+<section class="welcome">
+      <div class="container">
+        <div class="idea-heart-area pull-right">
+          <div class="heart-it gray-2{% if idea.hearted %} hearted{% else %} unhearted{% endif %}" data-idea-id="{{ idea.idea_id }}" data-hearted="{{ idea.hearted }}"><i class="glyphicon glyphicon-heart-empty"></i><i class="glyphicon glyphicon-heart red"></i> <span>{{ idea.hearts.length }}</span></div>
+        </div>
+        <h2 class="idea-title">{{ idea.title }}</h2>
+        <p class="idea-hearts idea-avatar">
+          {% for people in supporters %}
+          <a class="idea-hearts-people" href="/people/{{ people.username }}" data-toggle="tooltip" data-placement="bottom" title="{{ people.username }}">
+            <img src="{{ H.gravatar(people.gravatar, 30) }}">
+          </a>
+          {% endfor %}
+        </p>
+      </div>
+    </section>
+<section class="main single">
+  <div class="container">
+    <div class="row">
+      <div class="col col-md-12">
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <div class="idea-author idea-avatar gray">
+              <a class="idea-hearts-people" href="/people/{{ author.username }}">
+                <img src="{{ H.gravatar(author.gravatar, 30) }}">
+                <span style="font-weight:bold">{{ author.username }}</span>
+              </a>
+              <div class="pull-right" style="font-size:13px">
+                <span class="idea-timeago">{{ H.timeago(idea.createdAt) }}</span>
+              </div>
+            </div>
+            <div class="markdown-body gray-1">
+              {{ idea.description | safe }}
+            </div>
+          </div>
+          <div class="comments">
+            <div class="comments-list">
+              <div style="text-align:center;padding:20px">正在加载评论...</div>
+            </div>
+            {% if user %}
+            <div class="comment-add-area">
+              <div class="comment-add-left pull-left">
+                <a class="idea-avatar" href="/people/{{ user.username }}">
+                  <img src="{{ H.gravatar(user.gravatar, 30) }}">
+                </a>
+              </div>
+              <div class="comment-add-main" style="padding-left:45px">
+                <textarea class="form-control" id="comment" rows="5"></textarea>
+                <div class="form-action clearfix" style="margin-top:10px">
+                    <button class="btn btn-success" id="comment-submit" data-idea-id="{{ idea.idea_id }}">评论</button>
+                </div>
+              </div>
+            </div>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% include 'comment-template.html' %}
+{% include 'comments-template.html' %}
+{% endblock %}

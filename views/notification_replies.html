@@ -1,0 +1,22 @@
+<script>
+var page = 'notifications'
+</script>
+
+{% if noties.length > 0 %}
+{% for n in noties %}
+<div class="notification">
+  <div class="notification-header">
+  <div class="pull-right">
+    <span class="notie-timeago gray">{{ H.timeago(n.comment[0].createdAt) }}</span>
+  </div>
+  <a href="/people/{{ n.from_user[0].username }}">{{ n.from_user[0].username }}</a>
+  在 <a href="/idea/{{ n.idea[0].slug }}/{{ n.idea[0].salt }}#{{ n.comment[0].comment_id }}">{{ n.idea[0].title }}</a> 回复了你
+  </div>
+  <div class="notification-content">
+    {{ n.comment[0].content }}
+  </div>
+</div>
+{% endfor %}
+{% else %}
+{% include 'emptystate.html' %}
+{% endif %}

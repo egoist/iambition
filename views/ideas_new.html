@@ -1,0 +1,31 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+{{ title }} - {% parent %}
+{% endblock %}
+
+{% block content %}
+  <div class="form-scale">
+  {% if user.is_active %}
+      {% include 'alert.html' %}
+     <div class="form-group">
+
+      <label for="title">一句话概括</label>
+      <p class="help-block">eg: 用 Product Hunt 来发现优秀的人</p>
+      <input type="text" class="form-control" id="title" placeholder="">
+    </div>
+    <div class="form-group">
+      <label for="description">详细描述</label>
+      <p class="help-block">你是如何产生这个想法的，这个想法存在什么问题或者能解决什么问题</p>
+      <textarea class="form-control" id="description" placeholder="" rows="5"></textarea>
+      <p class="help-block">支持 Markdown 格式，图片请用 <a href="http://x.mouto.org/wb/">微博图床</a></p>
+    </div>
+   
+    <button type="button" class="btn btn-default btn-block" id="idea-submit">提交</button>
+  {% else %}
+  <div class="alert alert-warning" role="alert">
+  你还没有验证邮箱。
+  </div>
+  {% endif %}
+  </div>
+{% endblock %}

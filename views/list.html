@@ -1,0 +1,33 @@
+{% if ideas.length > 0 %}
+<header class="date-header">
+  <h3 class="date">{{ date }}</h3>
+</header>
+<div class="content">
+  <div class="ideas">
+    {% for idea in ideas %}
+    <div class="one-idea clearfix">
+      <div class="idea-left pull-left">
+        <div class="heart-it gray-3{% if idea.hearted %} hearted{% else %} unhearted{% endif %}" data-idea-id="{{ idea.idea_id }}" data-hearted="{{ idea.hearted }}"><i class="glyphicon glyphicon-heart-empty"></i><i class="glyphicon glyphicon-heart red"></i> <span>{{ idea.hearts.length }}</span></div>
+      </div>
+      <div class="idea-right pull-right">
+
+        <a class="idea-right-author pull-right idea-avatar" href="/people/{{ idea.author.username }}"  data-toggle="tooltip" data-placement="right" title="{{ idea.author.username }}"><img src="{{ H.gravatar(idea.author.gravatar, 24) }}"></a>
+        <a class="idea-comments-count gray-3 cursor pull-right" href="/idea/{{ idea.slug }}/{{ idea.salt }}">
+          <i class="fa fa-comment"></i> <span>{{ idea.comments }}</span>
+        </a>
+
+      </div>
+      <div class="idea-center">
+        <h3>
+                  <a href="/idea/{{ idea.slug }}/{{ idea.salt }}">{{ idea.title }}</a>
+                </h3>
+        <div class="idea-description gray">
+          {{ idea.description }}
+        </div>
+      </div>
+      
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{% endif %}

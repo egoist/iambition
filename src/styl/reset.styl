@@ -1,0 +1,72 @@
+/*
+body 
+  font-size font-size
+  font-family fonts
+  line-height line-height
+*/
+
+a 
+  color #4183c4
+  text-decoration none
+
+h1,h2,h3,h4,h5,h6
+  margin 0
+
+ul
+  margin 0
+  list-style none
+
+.clearfix
+  &:after
+    content ''
+    clear both
+    height 0
+    display block
+    visibility hidden
+
+// reset bootstrap
+textarea
+  resize none
+
+.help-block
+  font-size 13px
+  color #999
+
+.btn 
+  border-radius 2px
+
+.header  
+  .nav>li>a
+    text-height 44px
+    padding 0
+    margin-left 15px
+    &:hover
+      background-color transparent
+
+.header
+  .nav .open>a, .nav .open>a:focus, .nav .open>a:hover,.nav > li > a:hover, .nav > li > a:focus
+    background-color transparent !important
+
+.dropdown-menu
+  border none !important
+  box-shadow(0 0 0 1px rgba(100,100,100,0.2),0 0.25rem 0.5rem 0 rgba(100,100,100,0.1))
+// end reset bootstrap
+
+.tagsinput
+  display: block;
+  cursor: text;
+  width: 100%;
+  height: 34px;
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #555;
+  background-color: #fff;
+  background-image: none;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+  -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+  -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+  transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;

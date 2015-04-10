@@ -1,0 +1,27 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+{{ title }} - {% parent %}
+{% endblock %}
+
+{% block content %}
+<div class="single">
+<div class="row">
+  
+  <div class="col col-md-3">
+      <div class="list-group">
+        <a href="/settings" class="list-group-item{% if active == 'profile' %} active{% endif %}">个人资料</a>
+        <a href="/settings/avatar" class="list-group-item{% if active == 'avatar' %} active{% endif %}">修改头像</a>
+        <a href="/settings/password" class="list-group-item{% if active == 'password' %} active{% endif %}">更新密码</a>
+      </div>
+  </div>
+  <div class="col col-md-9">
+    {% set page = 'settings_'+active+'.html' %}
+    {% include page %}
+  </div>
+  
+
+  </div>
+</div>
+{% endblock %}
+

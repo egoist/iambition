@@ -1,0 +1,36 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+{{ title }} - {% parent %}
+{% endblock %}
+
+{% block content %}
+<div class="single">
+<div class="row">
+  
+  <div class="col col-md-3">
+    <div class="panel panel-default">
+      <div class="panel-body tc">
+        <img src="{{ H.gravatar(userinfo.gravatar, 100) }}" style="border:1px solid #ccc;border-radius:50%;">
+        <h2 class="userinfo-name">{{ title }}</h2>
+      </div>
+    </div>
+  </div>
+  <div class="col col-md-9">
+  <div class="panel panel-default">
+      <div class="panel-body">
+       <ul class="nav nav-pills">
+          <li role="presentation"{% if usertab == 'loves' %} class="active"{% endif %}><a href="/people/{{ userinfo.username }}">喜欢的</a></li>
+          <li role="presentation"{% if usertab == 'ideas' %} class="active"{% endif %}><a href="/people/{{ userinfo.username }}/ideas">我的</a></li>
+        </ul>
+        {% include 'ideas.html' %}
+      </div>
+    </div>
+   
+  </div>
+  
+
+  </div>
+</div>
+{% endblock %}
+

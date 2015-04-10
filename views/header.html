@@ -1,0 +1,37 @@
+<header class="header">
+      <div class="container">
+        <h1 class="sitename">
+          <a href="/">{{ C.site.name }}</a>
+        </h1>
+        <ul class="nav navbar-nav navbar-right">
+        {% if user %}
+          <li class="visible-xs-block">
+            <a class="notie" href="/notifications">
+              <i class="fa fa-bell"></i><span></span>
+            </a>
+          </li>
+          <li class="visible-xs-block"><a href="/people/{{ user.username }}">主页</a></li>
+          <li class="visible-xs-block"><a href="/settings">设置</a></li>
+          <li class="hidden-xs">
+            <a class="notie rounded-square" href="/notifications">
+              <i class="fa fa-bell"></i><span></span>
+            </a>
+          </li>
+          <li class="dropdown hidden-xs">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><img src="{{H.gravatar(user.gravatar, 40)}}" class="top-avatar"> {{ user.username }} <span class="caret"></span></a>
+            <ul class="dropdown-menu" role="menu">
+              <li><a href="/people/{{ user.username }}">个人主页</a></li>
+              <li><a href="/settings">账号设置</a></li>
+              <li class="divider"></li>
+              <li><a href="/about">关于</a></li>
+              <li><a href="/logout">退出</a></li>
+            </ul>
+          </li>
+        
+        {% else %}
+          <li><a href="/signin">登录</a></li>
+          <li style="margin-right:15px"><a href="/signup">注册</a></li>
+        {% endif %}
+        </ul>
+      </div>
+    </header>

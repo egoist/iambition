@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>{% block title %}{{ C.site.name }}{% endblock %}</title>
+  {% block styles %}
+  {% include 'styles.html' %}
+  {% endblock %}
+</head>
+<body>
+  <div class="wrap">
+    {% include 'script.html' %}
+    {% block header %}
+    {% include 'header.html' %}
+    {% endblock %}
+    {% block main %}
+    <section class="main">
+      <div class="container">
+      {% block content %}
+        <div class="timeline">
+        {% include 'list.html' %}
+        </div>
+        <div class="load" id="load">加载更多</div>
+      {% endblock %}
+      </div>
+    </section>
+    {% endblock %}
+  </div>
+  {% block scripts %}
+  <script src="/static/lib/jquery/dist/jquery.min.js"></script>
+  <script src="/static/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="/static/lib/mustache.js/mustache.min.js"></script>
+  <script src="/static/lib/moment/min/moment-with-locales.min.js"></script>
+  <script src="/static/lib/jquery-pjax/jquery.pjax.js"></script>
+  <script src="/static/lib/pace/pace.min.js"></script>
+  <script src="/static/lib/jquery.tagsinput/jquery.tagsinput.min.js"></script>
+  <script src="/static/lib/autosize/dest/autosize.min.js"></script>
+  <script src="/static/js/bundle.js"></script>
+  {% endblock %}
+</body>
+</html>

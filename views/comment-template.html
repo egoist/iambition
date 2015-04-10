@@ -1,0 +1,15 @@
+{% raw %}
+<script id="comment-template" type="x-tmpl-mustache">
+<div class="comment">
+  <a href="/people/{{ user.username }}" class="comment-avatar">
+    <img src="http://gravatar.duoshuo.com/avatar/{{ user.gravatar }}?s=30&d=monsterid">
+  </a>
+  <div class="comment-header">
+    <a class="comment-username" href="/people/{{ user.username }}">{{ user.username }}</a>
+  </div>
+  <div class="comment-content markdown-body gray-1">
+    {{{ content }}}
+  </div>
+</div>
+</script>
+{% endraw %}
