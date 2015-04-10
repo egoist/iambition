@@ -52,7 +52,9 @@
             <div class="comments-list">
               <div id="no-comment" style="text-align:center;padding:20px">正在加载评论...</div>
             </div>
-            {% if user %}
+            
+          </div>
+          {% if user %}
             <div class="comment-add-area">
               <div class="comment-add-left pull-left">
                 <a class="idea-avatar" href="/people/{{ user.username }}">
@@ -67,7 +69,6 @@
               </div>
             </div>
             {% endif %}
-          </div>
         </div>
       </div>
     </div>
