@@ -289,7 +289,7 @@ routes.idea = (req, res) ->
       uid:
         $in: gotIdea.hearts
     M.user.find().where(query).exec (err, supporters) ->
-      gotIdea.description = H.stripTags H.md H.xss gotIdea.description
+      gotIdea.description = H.md H.xss gotIdea.description
       if gotIdea and req.session.user
         if H.checkInArray(gotIdea.hearts, req.session.user.uid)
           gotIdea.hearted = true
