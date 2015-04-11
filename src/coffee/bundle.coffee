@@ -157,6 +157,7 @@ loadBefore = ->
       $('.timeline').append(data).show()
       $('#load').show()
       $('#loading-heart').hide()
+      $('[data-toggle="tooltip"]').tooltip()
       $('.gone').each ->
           $(this).addClass 'animated fadeInUp'
 
