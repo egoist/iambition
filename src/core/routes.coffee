@@ -40,7 +40,7 @@ routes.ideasDate = (req, res) ->
     "createdAt":
       "$gte": new Date(date)
       "$lt": new Date(date_end)
-  M.idea.find().where(query).sort(createdAt: -1).exec (err, ideas) ->
+  M.idea.find().where(query).populate('user').sort(createdAt: -1).exec (err, ideas) ->
     if ideas
       for k, v of ideas
         ideas[k].description = H.stripTags H.md H.xss v.description
