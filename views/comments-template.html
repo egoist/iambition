@@ -6,12 +6,12 @@
     <img src="http://gravatar.duoshuo.com/avatar/{{ user.gravatar }}?s=30&d=monsterid">
   </a>
   <div class="comment-header">
-    <a class="comment-username" href="/people/{{ user.username }}">{{ user.username }}</a>
-    <div class="pull-right gray">
+    <div class="pull-right gray" style="height:20px">
       <span class="idea-timeago">{{ timeago }}</span>
       <span class="dot"></span>
       <span class="idea-reply" data-comment-id="{{ comment_id }}" data-username="{{ user.username }}">回复</span>
     </div>
+    <a class="comment-username" href="/people/{{ user.username }}">{{ user.username }}</a>
   </div>
   <div class="comment-content markdown-body gray-1">
     {{{ content }}}

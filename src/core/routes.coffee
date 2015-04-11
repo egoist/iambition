@@ -331,7 +331,7 @@ routes.commentAdd = (req, res) ->
         comments: 1
       , (err, updated) ->
         regex = /(^|\s)@(\w*[a-zA-Z_]+\w*)/gm # /@([a-zA-Z0-9\_]+\.?)/g
-        mentioned_users = comment.content.match regex || []
+        mentioned_users = if comment.content.match regex then comment.content.match regex else []
         console.log mentioned_users
         if req.body.idea_username isnt req.session.user.username
           mentioned_users.push '@' + req.body.idea_username      
