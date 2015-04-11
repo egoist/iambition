@@ -171,6 +171,7 @@ load = ->
     if data
       $('.timeline').append data
       $('#load').html '加载更多'
+      $('[data-toggle="tooltip"]').tooltip()
     else
       $('#load').html '没有人在 '+ timeago(date_from) + ' 发布内容'
 
