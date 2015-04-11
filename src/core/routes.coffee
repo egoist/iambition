@@ -43,6 +43,7 @@ routes.ideasDate = (req, res) ->
   M.idea.find().where(query).populate('user').sort(createdAt: -1).exec (err, ideas) ->
     if ideas
       for k, v of ideas
+        ideas[k].author = v.user[0]
         ideas[k].description = H.stripTags H.md H.xss v.description
         if req.session.user
           if H.checkInArray(v.hearts, req.session.user.uid)
